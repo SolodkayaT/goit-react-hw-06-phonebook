@@ -18,14 +18,14 @@ function Filter({ value, onChangeFilter }) {
 }
 
 Filter.defaultProps = {
-  value: "",
-  onChangeFilter: () => {}
+  value: ""
 };
 
 Filter.propTypes = {
   value: PropTypes.string,
   onChangeFilter: PropTypes.func
 };
+
 const mapStateToProps = state => ({
   value: state.contacts.filter
 });

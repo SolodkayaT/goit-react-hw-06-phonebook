@@ -1,34 +1,25 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import contactsActions from "../../redux/contacts/contactsActions";
 import ContactListItem from "../ContactListItem/ContactListItem";
 import { uuid } from "uuidv4";
-import ContactListButton from "../ContactListButton/ContactListButton";
 
-function ContactList({ contacts, onRemove }) {
+function ContactList({ contacts }) {
   return (
     <ul>
-      {contacts.map(contact => (
-        <ContactListItem contact={contact} key={uuid()}>
-          <ContactListButton
-            contact={contact}
-            onRemoveContact={() => onRemove(contact.id)}
-          />
-        </ContactListItem>
+      {contacts.map(({ id }) => (
+        <ContactListItem key={uuid()} id={id} />
       ))}
     </ul>
   );
 }
 
 ContactList.defaultProps = {
-  contacts: [],
-  onRemove: () => {}
+  contacts: []
 };
 
 ContactList.propTypes = {
-  contacts: PropTypes.array,
-  onRemove: PropTypes.func
+  contacts: PropTypes.array
 };
 
 const mapStateToProps = state => {
@@ -42,7 +33,4 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = {
-  onRemove: contactsActions.removeContact
-};
-export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
+export default connect(mapStateToProps)(ContactList);

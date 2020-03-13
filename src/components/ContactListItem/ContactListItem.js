@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import contactsActions from "../../redux/contacts/contactsActions";
 import PropTypes from "prop-types";
+
+import contactsActions from "../../redux/contacts/contactsActions";
 import styles from "./ContactListItem.module.css";
 import ContactListButton from "../ContactListButton/ContactListButton";
 

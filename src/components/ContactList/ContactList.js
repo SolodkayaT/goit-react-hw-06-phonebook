@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import ContactListItem from "../ContactListItem/ContactListItem";
 import { uuid } from "uuidv4";
+import PropTypes from "prop-types";
+
+import ContactListItem from "../ContactListItem/ContactListItem";
 
 function ContactList({ contacts }) {
   return (
